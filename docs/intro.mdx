@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+---
+
+
+# Getting Started 
+
+```sh
+git clone https://github.com/ana-log/analog-tsx.git
+cd analog-ts
+npm i
+```
+- Copy `.env.example` and paste it in the main directory
+- Rename it to just `.env`
+- Put your bot token in `TOKEN=` 
+- Example `TOKEN=239ung2389g-0n2q9gjn20-g98n293838h9wg2a-awjj`
+- To start the bot do ↓
+```sh
+npm start
+```
+### If you want to setup a dev environment 
+1. Open up 2 Terminals in VS Code (or your IDE of choice)
+2. First terminal do `npm run watch`
+3. Second terminal do `npm run dev` 
+
+This should restart the bot everytime you make a code change
+<
+
+**MAKE SURE `registerCmd` IN `devconfig.ts` IS SET TO FALSE WHILE IN DEV MODE, OTHERWISE DISCORD WILL RATELIMIT YOU!**
+## Bots using Analog.ts
+- [S.I.M.P.S Discord bot](https://github.com/simpsmc/discordbot)
+- [Observer-Bot-TS](https://github.com/ComparatorCraftSMP/observer-bot-ts)

@@ -16,7 +16,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'ana-log', // Usually your GitHub org/user name.
+  organizationName: 'analog-org', // Usually your GitHub org/user name.
   projectName: 'analog-tsx', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -70,8 +70,13 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/ana-log/analog-tsx',
+            href: 'https://github.com/analog-org/analog-tsx',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://discord.gg/xSpBp9nfU2',
+            label: 'Discord',
             position: 'right',
           },
         ],

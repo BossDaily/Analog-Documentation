@@ -28,5 +28,3 @@ You can also just start the bot in the bot directory without starting the dashbo
 npm run dev
 ```
 :::
-
-### Credentials for the bot

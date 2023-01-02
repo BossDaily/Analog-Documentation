@@ -14,28 +14,27 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Analog-TSX was designed from the ground up to be easily installed and
+        maintained. So all you have to worry about is creating commands & UI for the dashboard.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Discord Bot',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Analog-TSX has a built in framework for creating commands, modals, selection menus, and more. Which is powered by Discord.js.
+        
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Powered by NextJS + Typescript + TailwindCSS',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Write a fast and efficient frontend with NextJS. With TailwindCSS you can create a beautiful UI.
       </>
     ),
   },

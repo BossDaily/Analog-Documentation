@@ -8,23 +8,41 @@ Here is how you can get started on the Discord bot portion of analog-tsx.
 
 ### Dev environment 
 If you want to setup a developer environment where you can restart the bot and compile it
-```sh
+```bash
 cd apps/bot
 ```
-```sh title="/home/apps/bot"
+```bash title="/analog-tsx/apps/bot"
 npm run watch
 ```
 
 
 Do `cd ../` to move up a directory
 
-```sh title="/home/"
+```bash title="/hoanalog-tsxme/"
 npm run dev
 ```
 :::tip Pro tip
 
 You can also just start the bot in the bot directory without starting the dashboard
-```sh title="/home/apps/bot"
+```bash title="/analog-tsx/apps/bot"
 npm run dev
 ```
+:::
+
+### Developer Config
+There is a config file you can create by copying `devconfig.example.ts` in the root directory of the bot:
+> `/analog-tsx/apps/bot/devconfig.example.ts` 
+
+Then rename it to `devconfig.ts`. This file is ignored by git since it isn't really needed.
+It should look like this:
+```ts title="/analog-tsx/apps/bot/devconfig.ts"
+export const devConfig = {
+    registerCmd: true
+}
+```
+
+The `registerCmd` property is a boolean that determines if the bot should register the commands on startup. This is useful if you want to test the bot without registering the commands. You can also set this to false if you want to test the bot without registering the commands.
+
+:::danger
+Its best advised to sparingly use this feature since Discord might rate limit you if you register too many commands too quickly.
 :::

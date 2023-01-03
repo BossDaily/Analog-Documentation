@@ -82,3 +82,51 @@ npm run delete-cmds
 ```
 :::
 **__Its actually best advised to register the commands before you start working on the logic, that way you can easily test the commands__**
+
+### Using Analog-ts snippets
+
+We've created a VSCode Extension that can easily help you create commands, events, and components for our framework. You can find the extension [here](https://marketplace.visualstudio.com/items?itemName=BossDaily.analog-ts-snippets)
+
+#### Creating the command with the extension
+
+In order to create a command you still have to create the file for the command but now all you have to do is `CTRL + SPACE` and this menu should pop up:
+
+![VSCode suggestion menu](https://cdn.discordapp.com/attachments/884135471016452098/1059904689191276705/image.png)
+
+Then you can just type in `ancmd` and press enter.
+![VS Code Suggestion](https://cdn.discordapp.com/attachments/884135471016452098/1059905517889257502/image.png)
+
+It should generate most of the code you need to create a basic command, like this:
+```ts title="/analog-tsx/apps/bot/src/commands/ping.ts"
+import {
+  Interaction,
+  EmbedBuilder,
+  CommandInteractionOptionResolver,
+  Message,
+  CommandInteraction,
+  ApplicationCommand,
+  SlashCommandBuilder,
+  SlashCommandStringOption,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  MessageActionRowComponentBuilder,
+} from "discord.js";
+
+module.exports = {
+  data: new SlashCommandBuilder().setName("ping").setDescription("pings you"),
+
+  async execute(interaction: CommandInteraction) {
+    try {
+      // code here
+      await interaction.reply("pong");
+    } catch (error) {
+      await interaction.reply({
+        content: "There was an error",
+        ephemeral: true,
+      });
+      console.error(error);
+    }
+  },
+};
+```

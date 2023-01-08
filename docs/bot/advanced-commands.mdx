@@ -2,5 +2,103 @@
 sidebar_position: 3
 ---
 
-# Advanced Commands 
-A normal 
+# Advanced Commands
+
+import {
+  DiscordCommand,
+  DiscordCustomEmoji,
+  DiscordEmbed,
+  DiscordEmbedDescription,
+  DiscordEmbedField,
+  DiscordEmbedFields,
+  DiscordMention,
+  DiscordMessage,
+  DiscordMessages,
+  DiscordTime,
+} from "@skyra/discord-components-react";
+import moment from "moment";
+
+<div>
+  <DiscordMessages>
+    <DiscordMessage
+      avatar="https://media.discordapp.net/attachments/1037032323276877945/1037382114510905394/analogwinter.png?width=910&height=910"
+      author="Analog-TSX testt"
+      bot
+      verified
+    >
+      <DiscordCommand
+        slot="reply"
+        command="/info server"
+        author="BossDailytest"
+        avatar="https://cdn.discordapp.com/attachments/884135471016452098/1061464495949619280/Bossdaily_pfp_transparnet_fixed.png"
+      ></DiscordCommand>
+      <DiscordEmbed
+        slot="embeds"
+        color="#0F52BA"
+        embedTitle="Information About Analog"
+      >
+        <DiscordEmbedFields slot="fields">
+          <DiscordEmbedField fieldTitle="Owner" inline inlineIndex={1}>
+            <DiscordCustomEmoji
+              name="owner"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/888881202352754688.webp?size=56&quality=lossless"
+            />{" "}
+            <DiscordMention>BossDaily</DiscordMention>
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Members" inline inlineIndex={2}>
+            <DiscordCustomEmoji
+              name="Members"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/964425853930995783.webp?size=56&quality=lossless"
+            />{" "}
+            Members: 6,451
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Date  Created" inline inlineIndex={3}>
+            <DiscordCustomEmoji
+              name="Calender"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/941679946760351794.webp?size=56&quality=lossless"
+            />{" "}
+            <DiscordTime>Sunday, October 4, 2020 1:21 PM</DiscordTime> or{" "}
+            <DiscordTime>{moment([2020, 10, 4]).fromNow()}</DiscordTime>
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Bot Join Date" inline inlineIndex={4}>
+            <DiscordCustomEmoji
+              name="Calender"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/941679946760351794.webp?size=56&quality=lossless"
+            />{" "}
+            <DiscordTime>Sunday, November 5, 2020 4:45 PM</DiscordTime> or{" "}
+            <DiscordTime>{moment([2020, 11, 5]).fromNow()}</DiscordTime>
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Affiliation" inline inlineIndex={5}>
+            <DiscordCustomEmoji
+              name="Partnered"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/869529747447746600.webp?size=56&quality=lossless"
+            />{" "}
+            Partnered: True
+            <br />
+            <DiscordCustomEmoji
+              name="Partnered"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/869529747846234162.webp?size=56&quality=lossless"
+            />{" "}
+            Verified: False
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Channels" inline inlineIndex={6}>
+            <DiscordCustomEmoji
+              name="Members"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/859424401950113822.webp?size=56&quality=lossless"
+            />{" "}
+            46
+          </DiscordEmbedField>
+        </DiscordEmbedFields>
+      </DiscordEmbed>
+    </DiscordMessage>
+  </DiscordMessages>
+</div>
+
+A normal

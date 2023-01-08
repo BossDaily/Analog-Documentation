@@ -4,7 +4,16 @@ sidebar_position: 1
 
 # Getting Started
 
-Here is how you can get started on the Discord bot portion of analog-tsx.
+Here is how you can get started on the Discord bot portion of Analog-TSX (and Analog-ts).
+
+### Resources
+It is highly recommended, that you're familiar with [Discord.js](https://discord.js.org/#/).
+We also highly recommend you read their guide, [Discord.js Guide](https://discordjs.guide/) a lot of the methods being taught there can be applied to this framework.
+
+- Discord.JS Docs: [https://discord.js.org/#/docs/main/stable/general/welcome](https://discord.js.org/#/docs/main/stable/general/welcome)
+- Discord.JS Guide: [https://discordjs.guide/](https://discordjs.guide/)
+- Discord API Types: [https://discord-api-types.dev/](https://discord-api-types.dev/)
+- Discord.JS Discord: [https://discord.gg/bRCvFy9](https://discord.gg/bRCvFy9)
 
 ### Dev environment 
 If you want to setup a developer environment where you can restart the bot and compile it

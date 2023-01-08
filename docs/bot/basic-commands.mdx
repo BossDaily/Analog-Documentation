@@ -3,18 +3,32 @@ sidebar_position: 2
 ---
 
 # Basic Commands
+import { DiscordCommand, DiscordMessage, DiscordMessages } from "@skyra/discord-components-react";
 
-Creating Slash commands in Analog-TSX is similar to how [Discordjs.guide](https://discordjs.guide/creating-your-bot/slash-commands.html#individual-command-files) teaches you to create slash commands. 
+<div>
+  <DiscordMessages>
+    <DiscordMessage avatar="https://media.discordapp.net/attachments/1037032323276877945/1037382114510905394/analogwinter.png?width=910&height=910" author="Analog-TSX" bot verified>
+      <DiscordCommand slot="reply" command="/ping" author="BossDaily" avatar="https://cdn.discordapp.com/attachments/884135471016452098/1061464495949619280/Bossdaily_pfp_transparnet_fixed.png"></DiscordCommand>
+      Pong
+    </DiscordMessage>
+  </DiscordMessages>
+</div>
+
+
+Creating Slash commands in Analog-TSX is similar to how [Discordjs.guide](https://discordjs.guide/creating-your-bot/slash-commands.html#individual-command-files) teaches you to create slash commands.
 The difference is that Analog-TSX uses Typescript, meaning you're going to have to specify the types on the interaction.
 Ex:
+
 ```ts title="/analog-tsx/apps/bot/src/commands/findPlayer.ts"
 async execute(interaction: ChatInputCommandInteraction) {
 
 }
 ```
+
 The upside of using our framework is there is a command handler built in so all you have to worry about is the logic
 
 ### Individual files for the commands
+
 Each new command should have its own file for the command and sub commands. Create a new file in the `src/commands` directory and name it whatever you want. Then import the neccessary methods from discord.js (and other libraries you're using).
 
 ```ts title="/analog-tsx/apps/bot/src/commands/ping.ts"
@@ -35,6 +49,7 @@ import {
 ```
 
 ### Creating the command
+
 Create a `module.exports` so the command can be used in the command handler. The `module.exports` should have a `data` property and an `execute` property. The `data` property is where you will create the slash command. The `execute` property is where you will put the logic for the command.
 
 ```ts title="/analog-tsx/apps/bot/src/commands/ping.ts"
@@ -49,6 +64,7 @@ module.exports = {
 ```
 
 The file should look like this so far:
+
 ```ts title="/analog-tsx/apps/bot/src/commands/ping.ts"
 import {
   Interaction,
@@ -67,21 +83,25 @@ module.exports = {
 ```
 
 ### Registering the command
+
 Now that you have created the command, you need to register it. They're two methods you can use to register the command:
 
 - `registerCmd: true` in the [devConfig](./intro#developer-config)
 - In the commandline by doing
+
 ```bash title="/analog-tsx/apps/bot"
 npm run reg-cmds
 ```
 
-:::tip You can clear __ALL__ the commands
+:::tip You can clear **ALL** the commands
 If you want to clear the commands, you can do:
+
 ```bash title="/analog-tsx/apps/bot"
 npm run delete-cmds
 ```
+
 :::
-**__Its actually best advised to register the commands before you start working on the logic, that way you can easily test the commands__**
+****Its actually best advised to register the commands before you start working on the logic, that way you can easily test the commands****
 
 ### Using Analog-ts snippets
 
@@ -97,6 +117,7 @@ Then you can just type in `ancmd` and press enter.
 ![VS Code Suggestion](https://cdn.discordapp.com/attachments/884135471016452098/1059905517889257502/image.png)
 
 It should generate most of the code you need to create a basic command, like this:
+
 ```ts title="/analog-tsx/apps/bot/src/commands/ping.ts"
 import {
   Interaction,

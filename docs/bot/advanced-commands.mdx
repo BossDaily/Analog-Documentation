@@ -22,19 +22,21 @@ import moment from "moment";
   <DiscordMessages>
     <DiscordMessage
       avatar="https://media.discordapp.net/attachments/1037032323276877945/1037382114510905394/analogwinter.png?width=910&height=910"
-      author="Analog-TSX testt"
+      author="Analog"
+      roleColor="#206694"
       bot
       verified
     >
       <DiscordCommand
         slot="reply"
         command="/info server"
-        author="BossDailytest"
+        roleColor="#e91e63"
+        author="BossDaily"
         avatar="https://cdn.discordapp.com/attachments/884135471016452098/1061464495949619280/Bossdaily_pfp_transparnet_fixed.png"
       ></DiscordCommand>
       <DiscordEmbed
         slot="embeds"
-        color="#0F52BA"
+        color="#5865f2"
         embedTitle="Information About Analog"
       >
         <DiscordEmbedFields slot="fields">
@@ -63,7 +65,7 @@ import moment from "moment";
             <DiscordTime>Sunday, October 4, 2020 1:21 PM</DiscordTime> or{" "}
             <DiscordTime>{moment([2020, 10, 4]).fromNow()}</DiscordTime>
           </DiscordEmbedField>
-          <DiscordEmbedField fieldTitle="Bot Join Date" inline inlineIndex={4}>
+          <DiscordEmbedField fieldTitle="Bot Join Date" inline inlineIndex={1}>
             <DiscordCustomEmoji
               name="Calender"
               embedEmoji
@@ -72,7 +74,7 @@ import moment from "moment";
             <DiscordTime>Sunday, November 5, 2020 4:45 PM</DiscordTime> or{" "}
             <DiscordTime>{moment([2020, 11, 5]).fromNow()}</DiscordTime>
           </DiscordEmbedField>
-          <DiscordEmbedField fieldTitle="Affiliation" inline inlineIndex={5}>
+          <DiscordEmbedField fieldTitle="Affiliation" inline inlineIndex={2}>
             <DiscordCustomEmoji
               name="Partnered"
               embedEmoji
@@ -87,13 +89,40 @@ import moment from "moment";
             />{" "}
             Verified: False
           </DiscordEmbedField>
-          <DiscordEmbedField fieldTitle="Channels" inline inlineIndex={6}>
+          <DiscordEmbedField fieldTitle="Channels" inline inlineIndex={3}>
             <DiscordCustomEmoji
-              name="Members"
+              name="Channels"
               embedEmoji
               url="https://cdn.discordapp.com/emojis/859424401950113822.webp?size=56&quality=lossless"
             />{" "}
             46
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Roles" inline inlineIndex={1}>
+            <DiscordCustomEmoji
+              name="Roles"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/875710295258046535.webp?size=56&quality=lossless"
+            />{" "}
+            30
+          </DiscordEmbedField>
+          <DiscordEmbedField fieldTitle="Boosting" inline inlineIndex={2}>
+            <DiscordCustomEmoji
+              name="Progress"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/860499265947959326.webp?size=56&quality=lossless"
+            />{" "}
+            Progress Bar: True <br />
+            <DiscordCustomEmoji
+              name="Count"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/869528229193584650.webp?size=56&quality=lossless"
+            /> Total Boosts: 35 <br />
+            <DiscordCustomEmoji
+              name="Tier"
+              embedEmoji
+              url="https://cdn.discordapp.com/emojis/888881202256306237.webp?size=56&quality=lossless"
+            />{" "}
+            Boosting Tier: Level 3 <br />
           </DiscordEmbedField>
         </DiscordEmbedFields>
       </DiscordEmbed>
@@ -101,4 +130,34 @@ import moment from "moment";
   </DiscordMessages>
 </div>
 
-A normal
+A lot of the slash commands you're going to create with your bot won't just be a basic `/ping` command with options.
+You might want to create a command that has a lot of options, or a command that has a lot of subcommands. Here is how you will get that done
+
+## Slash Command Options
+
+Adding options to slash commands with Analog is very similar to how it is tought in the [Discordjs guide](https://discordjs.guide/slash-commands/advanced-creation.html#adding-options).
+
+```ts title="/analog-tsx/apps/bot/src/commands/findPlayer.ts"
+import {
+  Interaction,
+  CommandInteractionOptionResolver,
+  CommandInteraction,
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+} from "discord.js";
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("findMember")
+    .setDescription("Search for a member in the database.")
+    .addStringOption((option) =>
+      option
+        .setName("member")
+        .setDescription(
+          "The member you want to find"
+        )
+        .setRequired(true)
+    ),
+```
+The only difference is the command interaction itself. Instead of the Interaction type being a `CommandInteraction`,
+it is a `ChatInputCommandInteraction`

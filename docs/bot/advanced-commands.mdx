@@ -159,7 +159,71 @@ module.exports = {
         .setRequired(true)
     ),
 ```
+
 The only difference is the command interaction itself. Instead of the Interaction type being a `CommandInteraction`,
 it is a `ChatInputCommandInteraction`
 
-## Slash Command 
+## Autocomplete
+
+Analog-ts/x handles autocomplete interactions, so all you have to do is add the `autocomplete` function to your command file.
+
+:::tip
+The _autocomplete_ on Analog-TSX works exactly the same as it does in Discord.JS
+Here is their [guide](https://discordjs.guide/slash-commands/autocomplete.html)
+:::
+
+The only thing you need to do is make sure the interaction is typed as `AutocompleteInteraction`
+
+```tsx title="/analog-tsx/apps/bot/src/commands/findPlayer.ts"
+async autocomplete(interaction: AutocompleteInteraction) {
+
+}
+```
+
+### Example
+
+```tsx title="api response (for the example)"
+[ "GIGA_GAMMA",  "barbaar31", "Anthracite17901", "Karousta", "ColossalCove"]
+```
+
+```tsx title="/analog-tsx/apps/bot/src/commands/findPlayer.ts"
+async autocomplete(interaction: AutocompleteInteraction) {
+  const focusedOption = interaction.options.getFocused(true);
+  let choices;
+
+  const options = {
+    method: "GET",
+    headers: { Accept: "application/json", key: `${process.env.API}` },
+  };
+
+  const req = await fetch(`${process.env.SERVER}/v1/scoreboard`, options)
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      const usernames = res.entries;
+      const objectives = res.objectives;
+
+      if (focusedOption.name === "username") {
+        choices = usernames;
+
+        const filtered = choices.filter((choice: string) =>
+        // we make sure the choices & focused option is in lowercase so the search is case insensitive 
+        // and we use .includes() so it searches for other parts of the strings 
+        // instead of just the beginning like in the Discord.js guide example
+          choice.toLowerCase().includes(focusedOption.value.toLowerCase())
+        );
+
+        interaction.respond(
+          filteredTwo
+            .map((choice: string) => ({
+              name: choice,
+              value: choice,
+            }))
+            // we slice the array to 25 because that is discord's limit for autocomplete choices
+            .slice(0, 25)
+        );
+      }
+    });
+},
+```

@@ -202,7 +202,6 @@ async autocomplete(interaction: AutocompleteInteraction) {
     })
     .then((res) => {
       const usernames = res.entries;
-      const objectives = res.objectives;
 
       if (focusedOption.name === "username") {
         choices = usernames;

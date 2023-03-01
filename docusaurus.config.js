@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'https://media.discordapp.net/attachments/1037032323276877945/1065094779509166081/Analog.png?width=850&height=850',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -60,7 +60,7 @@ const config = {
         title: 'Analog-TSX',
         logo: {
           alt: 'My Site Logo',
-          src: 'https://avatars.githubusercontent.com/u/110413696?s=200&v=4',
+          src: 'https://media.discordapp.net/attachments/1037032323276877945/1065094779509166081/Analog.png?width=850&height=850',
         },
         items: [
           {
